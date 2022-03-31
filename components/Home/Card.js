@@ -1,50 +1,70 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, ScrollView } from "react-native";
 import Feather from "react-native-vector-icons/Feather";
 
-export default function Card() {
+import CardItem from "./CardItem";
+
+export default function Card({ title }) {
   return (
-    <View style={styles.card}>
-      <View style={styles.cardImageContainer}>
-        <Image
-          style={styles.cardImage}
-          source={{
-            uri: "https://www.pngall.com/wp-content/uploads/8/Restaurant-Logo.png",
-          }}
-        />
+    <View style={styles.cardContainer}>
+      <Text style={styles.heading}>{title}</Text>
+      <View style={styles.cards}>
+        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+          <CardItem />
+          <CardItem />
+          <CardItem />
+          <CardItem />
+        </ScrollView>
       </View>
-      <View style={styles.cardContent}>
-        <Text style={styles.cardHeading}>Sultan</Text>
-        <Feather name="map-pin" size={14}>
-          Jigjiga Yar
-        </Feather>
-        <Feather name="clock" size={14}>
-          Open 7 days
-        </Feather>
+      <View style={styles.btnContainer}>
+        <View style={styles.btn}>
+          <Text style={styles.btnText}>View More</Text>
+          <Feather
+            name="arrow-right-circle"
+            size={17}
+            color={"white"}
+          ></Feather>
+        </View>
       </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  card: {
-    backgroundColor: "white",
-    width: "48.5%",
-    borderRadius: 7,
-    marginVertical: 5,
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingVertical: 20,
   },
-  cardHeading: {
-    fontSize: 17,
+
+  heading: {
+    fontSize: 25,
     fontWeight: "bold",
   },
-  cardContent: {
-    padding: 10,
+
+  cardContainer: {
+    paddingVertical: 10,
   },
-  cardImageContainer: {
+  cards: {
+    flexDirection: "row",
+    marginVertical: 10,
+  },
+
+  btn: {
+    justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "white",
+    flexDirection: "row",
+    padding: 10,
+    borderRadius: 100,
+    width: 115,
+    backgroundColor: "black",
   },
-  cardImage: {
-    width: "100%",
-    height: 100,
-    aspectRatio: 1,
+  btnText: {
+    color: "white",
+    paddingRight: 5,
+  },
+  btnContainer: {
+    alignItems: "center",
   },
 });
