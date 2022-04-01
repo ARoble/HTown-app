@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { View, Text, ScrollView, StyleSheet, SafeAreaView } from "react-native";
+import {
+  View,
+  Text,
+  ScrollView,
+  StyleSheet,
+  SafeAreaView,
+  StatusBar,
+} from "react-native";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import AppLoading from "expo-app-loading";
@@ -21,13 +28,6 @@ const MyTheme = {
   },
 };
 
-const customFonts = {
-  Montserrat_Regular: require("./assets/fonts/Montserrat-Regular.ttf"),
-  Montserrat_Medium: require("./assets/fonts/Montserrat-Medium.ttf"),
-  Montserrat_Bold: require("./assets/fonts/Montserrat-Bold.ttf"),
-  Montserrat_SemiBold: require("./assets/fonts/Montserrat-SemiBold.ttf"),
-};
-
 function App() {
   const [IsReady, SetIsReady] = useState(false);
   const LoadFonts = async () => {
@@ -43,27 +43,29 @@ function App() {
     );
   }
   return (
-    <NavigationContainer theme={MyTheme}>
-      <View style={styles.container}>
-        <Header />
-        <Stack.Navigator>
-          <Stack.Screen
-            name="Home"
-            component={Home}
-            options={{
-              headerShown: false,
-            }}
-          />
-          <Stack.Screen
-            name="List"
-            component={List}
-            options={{
-              headerShown: false,
-            }}
-          />
-        </Stack.Navigator>
-      </View>
-    </NavigationContainer>
+    <SafeAreaView style={{ flex: 1, paddingTop: StatusBar.currentHeight }}>
+      <NavigationContainer theme={MyTheme}>
+        <View style={styles.container}>
+          <Header />
+          <Stack.Navigator>
+            <Stack.Screen
+              name="Home"
+              component={Home}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="List"
+              component={List}
+              options={{
+                headerShown: false,
+              }}
+            />
+          </Stack.Navigator>
+        </View>
+      </NavigationContainer>
+    </SafeAreaView>
   );
 }
 
