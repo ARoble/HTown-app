@@ -6,11 +6,11 @@ import colors from "../../assets/colors/colors";
 
 import { useNavigation } from "@react-navigation/native";
 
-export default function CardItem({ restaurant }) {
+export default function CardItem({ restaurant, scroll }) {
   const navigation = useNavigation();
   return (
     <TouchableOpacity
-      style={styles.card}
+      style={scroll ? styles.card : styles.noScrollCard}
       onPress={() => navigation.navigate("List")}
     >
       <View style={styles.cardImageContainer}>
@@ -48,6 +48,13 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: colors.white,
     width: 140,
+    borderRadius: 7,
+    marginVertical: 5,
+    marginRight: 10,
+  },
+  noScrollCard: {
+    backgroundColor: colors.white,
+    width: "45%",
     borderRadius: 7,
     marginVertical: 5,
     marginRight: 10,

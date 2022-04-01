@@ -6,38 +6,38 @@ import colors from "../../assets/colors/colors";
 import restaurantList from "../../assets/data/dummyData";
 import TextContent from "../Partials/Text";
 
-export default function Card({ title }) {
+function scrolledList() {
   return (
-    <View style={styles.cardContainer}>
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-          marginRight: 10,
-        }}
-      >
-        <TextContent text={title} fontSize={23} font={"Montserrat_Bold"} />
-        <TextContent
-          text={"View More"}
-          fontSize={12}
-          font={"Montserrat_Bold"}
-        />
-      </View>
+    <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
       <View style={styles.cards}>
-        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-          {restaurantList.map((restaurant) => (
-            <CardItem key={restaurant.id} restaurant={restaurant} />
-          ))}
-        </ScrollView>
+        {restaurantList.map((restaurant) => (
+          <CardItem key={restaurant.id} restaurant={restaurant} scroll={true} />
+        ))}
       </View>
-      {/* <View style={styles.btnContainer}>
+    </ScrollView>
+  );
+}
+
+function noScroll() {
+  return (
+    <View>
+      <View style={styles.cardsNoScroll}>
+        {restaurantList.map((restaurant) => (
+          <CardItem
+            key={restaurant.id}
+            restaurant={restaurant}
+            scroll={false}
+          />
+        ))}
+      </View>
+      <View style={styles.btnContainer}>
         <View style={styles.btn}>
           <Text style={styles.btnText}>
             <TextContent
               text={"View More"}
               fontSize={13}
               font={"Montserrat_Regular"}
+              color={colors.white}
             />
           </Text>
           <Feather
@@ -46,7 +46,26 @@ export default function Card({ title }) {
             color={"white"}
           ></Feather>
         </View>
-      </View> */}
+      </View>
+    </View>
+  );
+}
+
+export default function Card({ title, scroll }) {
+  return (
+    <View style={styles.cardContainer}>
+      <View style={styles.header}>
+        <TextContent text={title} fontSize={23} font={"Montserrat_Bold"} />
+        {scroll && (
+          <TextContent
+            text={"View More"}
+            fontSize={12}
+            font={"Montserrat_SemiBold"}
+            color={colors.primary}
+          />
+        )}
+      </View>
+      {scroll ? scrolledList() : noScroll()}
     </View>
   );
 }
@@ -56,8 +75,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingVertical: 20,
-    fontFamily: "Montserrat_Bold",
+    marginRight: 10,
   },
 
   heading: {
@@ -90,5 +108,12 @@ const styles = StyleSheet.create({
   },
   btnContainer: {
     alignItems: "center",
+    marginTop: 10,
+  },
+
+  // noscroll
+  cardsNoScroll: {
+    flexDirection: "row",
+    flexWrap: "wrap",
   },
 });

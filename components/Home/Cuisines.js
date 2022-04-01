@@ -11,33 +11,37 @@ export default function Cuisines() {
           <View style={styles.cuisineItem}>
             <TextContent
               text="Indian"
-              fontSize={15}
+              fontSize={13}
               font={"Montserrat_Regular"}
             />
           </View>
           <View style={styles.cuisineItem}>
             <TextContent
               text="Arabian"
-              fontSize={15}
+              fontSize={13}
               font={"Montserrat_Regular"}
             />
           </View>
           <View style={styles.cuisineItem}>
             <TextContent
               text="Italian"
-              fontSize={15}
+              fontSize={13}
               font={"Montserrat_Regular"}
             />
           </View>
           <View style={styles.cuisineItem}>
             <TextContent
               text="Somali"
-              fontSize={15}
+              fontSize={13}
               font={"Montserrat_Regular"}
             />
           </View>
           <View style={styles.cuisineItem}>
-            <Text style={styles.cuisineText}>French</Text>
+            <TextContent
+              text="French"
+              fontSize={13}
+              font={"Montserrat_Regular"}
+            />
           </View>
         </ScrollView>
       </View>

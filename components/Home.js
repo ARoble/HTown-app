@@ -9,9 +9,9 @@ import Coupon from "./Home/Coupon";
 export default function Home() {
   return (
     <ScrollView>
-      <Card title={"Places Near You 🍽"} />
+      <Card title={"Places Near You 🍽"} scroll={true} />
       <Cuisines />
-      <Card title={"Top Picks 🍽"} />
+      <Card title={"Top Picks 🍽"} scroll={false} />
       <Coupon />
     </ScrollView>
   );

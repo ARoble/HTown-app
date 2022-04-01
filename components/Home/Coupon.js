@@ -12,6 +12,7 @@ export default function Coupon() {
             text="Redeem a coupon!"
             fontSize={15}
             font={"Montserrat_SemiBold"}
+            color={colors.white}
           />
         </Text>
         <Text style={styles.couponInfo}>
@@ -20,9 +21,11 @@ export default function Coupon() {
             the city!!!"
             fontSize={12}
             font={"Montserrat_Regular"}
+            color={colors.white}
           />
         </Text>
       </View>
+
       <View style={styles.couponIcon}>
         <Feather name="arrow-right-circle" size={38} color={"white"}></Feather>
       </View>
