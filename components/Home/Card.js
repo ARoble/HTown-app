@@ -9,7 +9,21 @@ import TextContent from "../Partials/Text";
 export default function Card({ title }) {
   return (
     <View style={styles.cardContainer}>
-      <TextContent text={title} fontSize={23} font={"Montserrat_Bold"} />
+      <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginRight: 10,
+        }}
+      >
+        <TextContent text={title} fontSize={23} font={"Montserrat_Bold"} />
+        <TextContent
+          text={"View More"}
+          fontSize={12}
+          font={"Montserrat_Bold"}
+        />
+      </View>
       <View style={styles.cards}>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
           {restaurantList.map((restaurant) => (
@@ -17,16 +31,22 @@ export default function Card({ title }) {
           ))}
         </ScrollView>
       </View>
-      <View style={styles.btnContainer}>
+      {/* <View style={styles.btnContainer}>
         <View style={styles.btn}>
-          <Text style={styles.btnText}>View More</Text>
+          <Text style={styles.btnText}>
+            <TextContent
+              text={"View More"}
+              fontSize={13}
+              font={"Montserrat_Regular"}
+            />
+          </Text>
           <Feather
             name="arrow-right-circle"
             size={17}
             color={"white"}
           ></Feather>
         </View>
-      </View>
+      </View> */}
     </View>
   );
 }

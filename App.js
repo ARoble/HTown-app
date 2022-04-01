@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   container: {
     // fontFamily: " Montserrat_600SemiBold",
     flex: 1,
-    paddingHorizontal: 20,
+    paddingLeft: 20,
     backgroundColor: colors.background,
   },
 });

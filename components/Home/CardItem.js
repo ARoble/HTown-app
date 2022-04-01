@@ -28,7 +28,7 @@ export default function CardItem({ restaurant }) {
           fontSize={15}
           font={"Montserrat_SemiBold"}
         />
-        <Feather name="map-pin" size={14}>
+        <Feather name="map-pin" size={12}>
           <TextContent
             text={restaurant.location}
             fontSize={12}
