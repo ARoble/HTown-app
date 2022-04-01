@@ -1,25 +1,79 @@
-// import { StatusBar } from "expo-status-bar";
-import { StyleSheet, ScrollView, SafeAreaView, StatusBar } from "react-native";
-// import { NavigationContainer } from "@react-navigation/native";
+import React, { useState } from "react";
+import { View, Text, ScrollView, StyleSheet, SafeAreaView } from "react-native";
+import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import AppLoading from "expo-app-loading";
+
+import useFonts from "./hooks/useFont";
 
 import Home from "./components/Home";
 import Header from "./components/Partials/Header";
-export default function App() {
+import List from "./components/List/List";
+import colors from "./assets/colors/colors";
+
+const Stack = createNativeStackNavigator();
+
+const MyTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    background: colors.background,
+  },
+};
+
+const customFonts = {
+  Montserrat_Regular: require("./assets/fonts/Montserrat-Regular.ttf"),
+  Montserrat_Medium: require("./assets/fonts/Montserrat-Medium.ttf"),
+  Montserrat_Bold: require("./assets/fonts/Montserrat-Bold.ttf"),
+  Montserrat_SemiBold: require("./assets/fonts/Montserrat-SemiBold.ttf"),
+};
+
+function App() {
+  const [IsReady, SetIsReady] = useState(false);
+  const LoadFonts = async () => {
+    await useFonts();
+  };
+  if (!IsReady) {
+    return (
+      <AppLoading
+        startAsync={LoadFonts}
+        onFinish={() => SetIsReady(true)}
+        onError={() => {}}
+      />
+    );
+  }
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView>
+    <NavigationContainer theme={MyTheme}>
+      <View style={styles.container}>
         <Header />
-        <Home />
-        <StatusBar style="auto" />
-      </ScrollView>
-    </SafeAreaView>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Home"
+            component={Home}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="List"
+            component={List}
+            options={{
+              headerShown: false,
+            }}
+          />
+        </Stack.Navigator>
+      </View>
+    </NavigationContainer>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    // fontFamily: " Montserrat_600SemiBold",
     flex: 1,
     paddingHorizontal: 20,
-    backgroundColor: "#f6f6f6",
+    backgroundColor: colors.background,
   },
 });
+
+export default App;

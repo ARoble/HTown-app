@@ -2,17 +2,19 @@ import { StyleSheet, Text, View, ScrollView } from "react-native";
 import Feather from "react-native-vector-icons/Feather";
 
 import CardItem from "./CardItem";
+import colors from "../../assets/colors/colors";
+import restaurantList from "../../assets/data/dummyData";
+import TextContent from "../Partials/Text";
 
 export default function Card({ title }) {
   return (
     <View style={styles.cardContainer}>
-      <Text style={styles.heading}>{title}</Text>
+      <TextContent text={title} fontSize={23} font={"Montserrat_Bold"} />
       <View style={styles.cards}>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-          <CardItem />
-          <CardItem />
-          <CardItem />
-          <CardItem />
+          {restaurantList.map((restaurant) => (
+            <CardItem key={restaurant.id} restaurant={restaurant} />
+          ))}
         </ScrollView>
       </View>
       <View style={styles.btnContainer}>
@@ -35,6 +37,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     paddingVertical: 20,
+    fontFamily: "Montserrat_Bold",
   },
 
   heading: {
@@ -53,15 +56,16 @@ const styles = StyleSheet.create({
   btn: {
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "white",
+    backgroundColor: colors.white,
     flexDirection: "row",
     padding: 10,
     borderRadius: 100,
     width: 115,
-    backgroundColor: "black",
+    backgroundColor: colors.black,
   },
   btnText: {
-    color: "white",
+    color: colors.white,
+    fontWeight: "bold",
     paddingRight: 5,
   },
   btnContainer: {

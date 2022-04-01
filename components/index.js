@@ -5,7 +5,7 @@ import Card from "./Home/Card";
 import Cuisines from "./Home/Cuisines";
 import colors from "../assets/colors/colors";
 
-export default function Home() {
+export default Home = () => {
   return (
     <View>
       {/* <Cuisines /> */}
@@ -16,7 +16,7 @@ export default function Home() {
           <Text style={styles.couponHeader}>Redeem a coupon!</Text>
           <Text style={styles.couponInfo}>
             Get a discount on your next order from your favoriate restaurant in
-            the city!!!
+            the city!
           </Text>
         </View>
         <View style={styles.couponIcon}>
@@ -29,11 +29,11 @@ export default function Home() {
       </View>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   couponContainer: {
-    backgroundColor: colors.black,
+    backgroundColor: colors.primary,
     borderRadius: 15,
     padding: 10,
     flexDirection: "row",
