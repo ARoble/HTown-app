@@ -33,13 +33,9 @@ export default function CardItem({ restaurant, scroll }) {
             text={restaurant.location}
             fontSize={12}
             font={"Montserrat_Regular"}
-            color={colors.textLight}
+            color={colors.black}
           />
         </Feather>
-        <View style={{ flexDirection: "row" }}>
-          <Feather name="dollar-sign" size={14} color={"green"} />
-          <Feather name="dollar-sign" size={14} color={"green"} />
-        </View>
       </View>
     </TouchableOpacity>
   );

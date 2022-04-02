@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, Image } from "react-native";
+import { Text, View, StyleSheet, Image, ScrollView } from "react-native";
 import { useEffect, useState } from "react";
 import dummyData from "../../assets/data/dummyData";
 import Feather from "react-native-vector-icons/Feather";
@@ -19,85 +19,32 @@ export default function Index({ route }) {
     return <Text>Loading...</Text>;
   }
   return (
-    <View style={styles.details}>
-      {/* <View style={styles.backButton}>
-        <Text>hi</Text>
-        <Feather name="arrow-left" size={30} color="white"></Feather>
-      </View> */}
-      <View style={styles.detailsImageContainer}>
-        <Image
-          style={styles.cardImage}
-          source={{
-            uri: `${restaurant.bgImage}`,
-          }}
-        />
-
-        <View style={styles.cardData}>
-          <Image
-            style={styles.restaurantLogo}
-            source={{
-              uri: `${restaurant.image}`,
-            }}
-          />
-
-          <View>
-            <TextContent
-              text={restaurant.name}
-              fontSize={19}
-              font={"Montserrat_SemiBold"}
-            />
-            <Feather name="map-pin" size={12}>
-              <TextContent
-                text={restaurant.location}
-                fontSize={12}
-                font={"Montserrat_Regular"}
-              />
-            </Feather>
-          </View>
-        </View>
+    <View
+      style={{
+        flexDirection: "row",
+        backgroundColor: "blue",
+        height: 90,
+        borderRadius: 10,
+        width: "80%",
+      }}
+    >
+      <Image
+        style={{ width: 100, height: 100 }}
+        source={{
+          uri: `${restaurant.image}`,
+        }}
+      />
+      <View style={{ backgroundColor: "green", width: "50%" }}>
+        <Text>
+          A React component for displaying text. Text supports nesting, styling,
+          and touch handling. In the following example, the nested title and
+          body text will inherit the fontFamily from styles.baseText, but the
+          title provides its own additional styles. The title and body will
+          stack on top of each other on account of the literal newlines:
+        </Text>
       </View>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  detailsImageContainer: {
-    width: "100%",
-    position: "relative",
-    alignItems: "center",
-    height: 250,
-    backgroundColor: "blue",
-  },
-  cardImage: {
-    width: "100%",
-    height: "100%",
-    alignSelf: "center",
-  },
-  cardData: {
-    flexDirection: "row",
-    backgroundColor: "white",
-    position: "absolute",
-    bottom: -30,
-    width: "80%",
-    borderRadius: 15,
-    height: 80,
-    alignItems: "center",
-    // shadow ios
-    shadowColor: "black",
-    shadowOffset: { width: -2, height: 4 },
-    shadowOpacity: 0.2,
-    shadowRadius: 3,
-    // shadow android
-    elevation: 10,
-    shadowColor: "black",
-  },
-  restaurantLogo: {
-    width: 100,
-    height: "100%",
-    marginRight: 7,
-  },
-  backButton: {
-    flexDirection: "row",
-    backgroundColor: "blue",
-  },
-});
+const styles = StyleSheet.create({});

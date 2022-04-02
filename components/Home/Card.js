@@ -1,10 +1,11 @@
-import { StyleSheet, Text, View, ScrollView } from "react-native";
+import { StyleSheet, Text, View, ScrollView, Pressable } from "react-native";
 import Feather from "react-native-vector-icons/Feather";
 
 import CardItem from "./CardItem";
 import colors from "../../assets/colors/colors";
-import restaurantList from "../../assets/data/dummyData";
+import { restaurantList } from "../../assets/data/dummyData";
 import TextContent from "../Partials/Text";
+import { useNavigation } from "@react-navigation/native";
 
 function scrolledList() {
   return (
@@ -19,6 +20,7 @@ function scrolledList() {
 }
 
 function noScroll() {
+  const navigation = useNavigation();
   return (
     <View>
       <View style={styles.cardsNoScroll}>
@@ -32,14 +34,17 @@ function noScroll() {
       </View>
       <View style={styles.btnContainer}>
         <View style={styles.btn}>
-          <Text style={styles.btnText}>
+          <Pressable
+            style={styles.btnText}
+            onPress={() => navigation.navigate("List")}
+          >
             <TextContent
               text={"View More"}
               fontSize={13}
               font={"Montserrat_Regular"}
               color={colors.white}
             />
-          </Text>
+          </Pressable>
           <Feather
             name="arrow-right-circle"
             size={17}
@@ -52,17 +57,20 @@ function noScroll() {
 }
 
 export default function Card({ title, scroll }) {
+  const navigation = useNavigation();
   return (
     <View style={styles.cardContainer}>
       <View style={styles.header}>
         <TextContent text={title} fontSize={23} font={"Montserrat_Bold"} />
         {scroll && (
-          <TextContent
-            text={"View More"}
-            fontSize={12}
-            font={"Montserrat_SemiBold"}
-            color={colors.primary}
-          />
+          <Pressable onPress={() => navigation.navigate("List")}>
+            <TextContent
+              text={"View More"}
+              fontSize={12}
+              font={"Montserrat_SemiBold"}
+              color={colors.primary}
+            />
+          </Pressable>
         )}
       </View>
       {scroll ? scrolledList() : noScroll()}
@@ -85,6 +93,7 @@ const styles = StyleSheet.create({
 
   cardContainer: {
     paddingVertical: 10,
+    marginLeft: 15,
   },
   cards: {
     flexDirection: "row",

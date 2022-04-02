@@ -52,6 +52,7 @@ export default function Cuisines() {
 const styles = StyleSheet.create({
   cuisineContainer: {
     marginVertical: 10,
+    marginLeft: 10,
   },
   cuisineCard: {
     marginTop: 10,

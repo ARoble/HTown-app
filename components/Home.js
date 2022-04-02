@@ -5,7 +5,9 @@ import Header from "./Partials/Header";
 import Card from "./Home/Card";
 import Cuisines from "./Home/Cuisines";
 
-import Coupon from "./Home/Coupon";
+import Coupons from "./Home/Coupons";
+
+import { couponList } from "../assets/data/dummyData";
 
 export default function Home() {
   return (
@@ -14,7 +16,7 @@ export default function Home() {
       <Card title={"Places Near You 🍽"} scroll={true} />
       <Cuisines />
       <Card title={"Top Picks 🍽"} scroll={false} />
-      <Coupon />
+      <Coupons />
     </ScrollView>
   );
 }
