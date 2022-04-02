@@ -6,6 +6,7 @@ const restaurantList = [
     location: "Sheedaha",
     bgImage:
       "https://upload.wikimedia.org/wikipedia/commons/6/62/Barbieri_-_ViaSophia25668.jpg",
+    cuisines: ["Indian", "Turkish", "French"],
   },
   {
     id: 3,
@@ -15,6 +16,7 @@ const restaurantList = [
     location: "Star Area",
     bgImage:
       "https://upload.wikimedia.org/wikipedia/commons/6/62/Barbieri_-_ViaSophia25668.jpg",
+    cuisines: ["Somali", "Italian", "French", "Indian"],
   },
   {
     id: 4,
@@ -24,6 +26,7 @@ const restaurantList = [
     location: "Masalaha",
     bgImage:
       "https://upload.wikimedia.org/wikipedia/commons/6/62/Barbieri_-_ViaSophia25668.jpg",
+    cuisines: ["Arabic", "Yemani", "Ethiopian", "Indian"],
   },
   {
     id: 5,
@@ -33,6 +36,7 @@ const restaurantList = [
     location: "Gantaalaha",
     bgImage:
       "https://upload.wikimedia.org/wikipedia/commons/6/62/Barbieri_-_ViaSophia25668.jpg",
+    cuisines: ["Chinese", "Yemani", "Japanese", "Turkish"],
   },
 ];
 
