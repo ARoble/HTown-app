@@ -1,6 +1,6 @@
 import { Text, View, StyleSheet, Image, ScrollView } from "react-native";
 import { useEffect, useState } from "react";
-import dummyData from "../../assets/data/dummyData";
+import { restaurantList } from "../../assets/data/dummyData";
 import Feather from "react-native-vector-icons/Feather";
 
 import TextContent from "../Partials/Text";
@@ -12,7 +12,7 @@ export default function Index({ route }) {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    setRestaurant(dummyData.find((data) => data.id === id));
+    setRestaurant(restaurantList.find((data) => data.id === id));
     setLoaded(true);
   }, []);
   if (!loaded) {
