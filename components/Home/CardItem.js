@@ -11,7 +11,7 @@ export default function CardItem({ restaurant, scroll }) {
   return (
     <TouchableOpacity
       style={scroll ? styles.card : styles.noScrollCard}
-      onPress={() => navigation.navigate("List")}
+      onPress={() => navigation.navigate("Detail", { id: restaurant.id })}
     >
       <View style={styles.cardImageContainer}>
         <Image
@@ -33,6 +33,7 @@ export default function CardItem({ restaurant, scroll }) {
             text={restaurant.location}
             fontSize={12}
             font={"Montserrat_Regular"}
+            color={colors.textLight}
           />
         </Feather>
         <View style={{ flexDirection: "row" }}>

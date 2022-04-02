@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  ScrollView,
-  StyleSheet,
-  SafeAreaView,
-  StatusBar,
-} from "react-native";
+import { View, StyleSheet, SafeAreaView, StatusBar } from "react-native";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import AppLoading from "expo-app-loading";
@@ -14,8 +7,8 @@ import AppLoading from "expo-app-loading";
 import useFonts from "./hooks/useFont";
 
 import Home from "./components/Home";
-import Header from "./components/Partials/Header";
 import List from "./components/List/List";
+import Detail from "./components/Details/index";
 import colors from "./assets/colors/colors";
 
 const Stack = createNativeStackNavigator();
@@ -46,7 +39,7 @@ function App() {
     <SafeAreaView style={{ flex: 1, paddingTop: StatusBar.currentHeight }}>
       <NavigationContainer theme={MyTheme}>
         <View style={styles.container}>
-          <Header />
+          {/* <Header /> */}
           <Stack.Navigator>
             <Stack.Screen
               name="Home"
@@ -62,6 +55,13 @@ function App() {
                 headerShown: false,
               }}
             />
+            <Stack.Screen
+              name="Detail"
+              component={Detail}
+              options={{
+                headerShown: false,
+              }}
+            />
           </Stack.Navigator>
         </View>
       </NavigationContainer>
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
   container: {
     // fontFamily: " Montserrat_600SemiBold",
     flex: 1,
-    paddingLeft: 20,
+    // paddingLeft: 20,
     backgroundColor: colors.background,
   },
 });
