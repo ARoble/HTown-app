@@ -1,12 +1,17 @@
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, ScrollView } from "react-native";
 import { useEffect, useState } from "react";
 import { restaurantList } from "../../assets/data/dummyData";
 import Feather from "react-native-vector-icons/Feather";
 
+import DetailsCard from "./DetailsCards";
+import DetailsSection from "./DetailSection";
 import Header from "./Header";
 import colors from "../../assets/colors/colors";
 
+import { couponList } from "../../assets/data/dummyData";
 import TextContent from "../Partials/Text";
+
+import Coupon from "../Home/Coupon";
 
 export default function Index({ route }) {
   const { id } = route.params;
@@ -21,72 +26,28 @@ export default function Index({ route }) {
     return <Text>Loading...</Text>;
   }
   return (
-    <View>
+    <ScrollView>
       <Header restaurant={restaurant} />
-      <View style={styles.detailsCards}>
-        {/* one card */}
-        <View style={styles.detailsCard}>
-          <View style={styles.detailsIcon}>
-            <Feather name="users" size={25} color={colors.primary}></Feather>
-          </View>
-          <TextContent
-            text="Low"
-            fontSize={18}
-            font={"Montserrat_SemiBold"}
-            color={colors.black}
-          />
-          <TextContent
-            text="workload"
-            fontSize={12}
-            font={"Montserrat_Medium"}
-            color={colors.textGray}
-          />
+      <DetailsCard />
+      <View style={styles.detailsContainer}>
+        <DetailsSection cuisines={restaurant.cuisines} />
+
+        <View style={{ marginVertical: 14 }}>
+          <TextContent text="Coupons" fontSize={17} font={"Montserrat_Bold"} />
         </View>
-        {/* one card */}
-        {/* one card */}
-        <View style={styles.detailsCard}>
-          <View style={styles.detailsIcon}>
-            <Feather name="star" size={25} color={colors.primary}></Feather>
-          </View>
-          <TextContent
-            text="4.3"
-            fontSize={18}
-            font={"Montserrat_SemiBold"}
-            color={colors.black}
-          />
-          <TextContent
-            text="rating"
-            fontSize={12}
-            font={"Montserrat_Medium"}
-            color={colors.textGray}
-          />
-        </View>
-        {/* one card */}
-        {/* one card */}
-        <View style={styles.detailsCard}>
-          <View style={styles.detailsIcon}>
-            <Feather name="compass" size={25} color={colors.primary}></Feather>
-          </View>
-          <TextContent
-            text="1km"
-            fontSize={18}
-            font={"Montserrat_SemiBold"}
-            color={colors.black}
-          />
-          <TextContent
-            text="for you"
-            fontSize={12}
-            font={"Montserrat_Medium"}
-            color={colors.textGray}
-          />
-        </View>
-        {/* one card */}
+        {couponList.map((coupon) => (
+          <Coupon key={coupon.id} coupon={coupon} />
+        ))}
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  detailsContainer: {
+    marginHorizontal: 15,
+    marginTop: 15,
+  },
   detailsCards: {
     paddingTop: 60,
     flexDirection: "row",

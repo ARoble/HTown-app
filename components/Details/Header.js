@@ -52,6 +52,9 @@ export default function Header({ restaurant }) {
       <View style={styles.backButton}>
         <Feather name="arrow-left" size={23}></Feather>
       </View>
+      <View style={styles.bookmarkButton}>
+        <Feather name="bookmark" size={23}></Feather>
+      </View>
     </View>
   );
 }
@@ -98,6 +101,24 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 10,
     left: 10,
+    padding: 5,
+    borderRadius: 100,
+
+    // shadow ios
+    shadowColor: "black",
+    shadowOffset: { width: -2, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    // shadow android
+    elevation: 10,
+    shadowColor: "black",
+  },
+  bookmarkButton: {
+    backgroundColor: colors.white,
+    flexDirection: "row",
+    position: "absolute",
+    top: 10,
+    right: 10,
     padding: 5,
     borderRadius: 100,
 

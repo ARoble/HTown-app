@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 
 import TextContent from "../Partials/Text";
+import colors from "../../assets/colors/colors";
 
 export default function Cuisines() {
   return (
@@ -12,35 +13,35 @@ export default function Cuisines() {
             <TextContent
               text="Indian"
               fontSize={13}
-              font={"Montserrat_Regular"}
+              font={"Montserrat_SemiBold"}
             />
           </View>
           <View style={styles.cuisineItem}>
             <TextContent
               text="Arabian"
               fontSize={13}
-              font={"Montserrat_Regular"}
+              font={"Montserrat_SemiBold"}
             />
           </View>
           <View style={styles.cuisineItem}>
             <TextContent
               text="Italian"
               fontSize={13}
-              font={"Montserrat_Regular"}
+              font={"Montserrat_SemiBold"}
             />
           </View>
           <View style={styles.cuisineItem}>
             <TextContent
               text="Somali"
               fontSize={13}
-              font={"Montserrat_Regular"}
+              font={"Montserrat_SemiBold"}
             />
           </View>
           <View style={styles.cuisineItem}>
             <TextContent
               text="French"
               fontSize={13}
-              font={"Montserrat_Regular"}
+              font={"Montserrat_SemiBold"}
             />
           </View>
         </ScrollView>
@@ -66,7 +67,6 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     paddingHorizontal: 15,
     paddingVertical: 5,
-    borderWidth: 1,
   },
 
   cuisineText: {

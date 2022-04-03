@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 100,
     width: 115,
-    backgroundColor: colors.black,
+    backgroundColor: colors.primary,
   },
   btnText: {
     color: colors.white,
