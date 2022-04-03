@@ -9,7 +9,7 @@ export default function List() {
     <View style={styles.listContainer}>
       <Search />
       {restaurantList.map((restaurant) => (
-        <ListItem restaurant={restaurant} />
+        <ListItem restaurant={restaurant} key={restaurant.id} />
       ))}
     </View>
   );

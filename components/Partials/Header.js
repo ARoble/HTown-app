@@ -41,6 +41,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginHorizontal: 15,
     marginVertical: 5,
+    paddingTop: 20,
+    paddingBottom: 5,
   },
   userProfile: {
     flexDirection: "row",

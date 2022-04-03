@@ -72,7 +72,7 @@ function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 20,
+    // paddingTop: 20,
     // marginLeft: 20,
     backgroundColor: colors.background,
   },
