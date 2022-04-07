@@ -8,42 +8,64 @@ import CuisineItem from "./CuisineItem";
 export default function ListItem({ restaurant }) {
   return (
     <View style={styles.listItem}>
-      <Image
-        style={styles.listImage}
-        source={{
-          uri: `${restaurant.image}`,
-        }}
-      />
-
-      <View style={styles.listInfo}>
-        <View style={styles.listContent}>
-          <TextContent
-            text={restaurant.name}
-            fontSize={15}
-            font={"Montserrat_SemiBold"}
+      <View style={styles.list}>
+        <View style={styles.listImageContainer}>
+          <Image
+            source={{
+              uri: `${restaurant.image}`,
+            }}
+            style={styles.listImageContainer}
           />
-          <Feather name="map-pin" size={12}>
-            <TextContent
-              text={restaurant.location}
-              fontSize={12}
-              font={"Montserrat_Regular"}
-              color={colors.black}
-            />
-          </Feather>
-          <View style={styles.cuisineList}>
-            <ScrollView
-              horizontal={true}
-              showsHorizontalScrollIndicator={false}
-            >
-              {restaurant.cuisines.map((cusine) => (
-                <CuisineItem cusine={cusine} />
-              ))}
-
-              {/* <Text>hi</Text> */}
-            </ScrollView>
+          <View style={styles.bookMark}>
+            <Feather name="heart" size={18} color={colors.primary}></Feather>
           </View>
         </View>
-        <Feather style={styles.bookmark} name="bookmark" size={30}></Feather>
+        <View style={styles.listContent}>
+          <View>
+            <TextContent
+              text={restaurant.name}
+              fontSize={15}
+              font={"Montserrat_Bold"}
+            />
+            <View style={styles.listItems}>
+              <View style={styles.iconItem}>
+                <Feather name="star" size={16} color={colors.primary}></Feather>
+                <TextContent
+                  text={restaurant.rating}
+                  fontSize={13}
+                  font={"Montserrat_Medium"}
+                />
+              </View>
+              <View style={styles.iconItem}>
+                <Feather
+                  name="clock"
+                  size={16}
+                  color={colors.primary}
+                ></Feather>
+                <TextContent
+                  text={restaurant.distance}
+                  fontSize={13}
+                  font={"Montserrat_Medium"}
+                />
+              </View>
+            </View>
+            <View>
+              <TextContent
+                text={restaurant.cuisines.join(", ")}
+                fontSize={12}
+                font={"Montserrat_SemiBold"}
+                color={colors.textGray}
+              />
+            </View>
+          </View>
+          <View>
+            <Feather
+              name="arrow-right-circle"
+              size={25}
+              color={colors.black}
+            ></Feather>
+          </View>
+        </View>
       </View>
     </View>
   );
@@ -51,49 +73,43 @@ export default function ListItem({ restaurant }) {
 
 const styles = StyleSheet.create({
   listItem: {
-    flexDirection: "row",
-    backgroundColor: colors.white,
-    borderRadius: 5,
-    marginBottom: 12,
-    // shadow ios
-    shadowColor: "black",
-    shadowOffset: { width: -2, height: 4 },
-    shadowOpacity: 0.2,
-    shadowRadius: 3,
-    // shadow android
-    elevation: 10,
-    shadowColor: "black",
+    marginTop: 15,
+    paddingBottom: 13,
+    borderRadius: 1,
+    borderBottomWidth: 1,
+    borderColor: colors.darkGray,
   },
-  listImage: {
-    height: 90,
-    width: 90,
-    borderRadius: 5,
+  list: {
+    flexDirection: "row",
+  },
+  listImageContainer: {
+    position: "relative",
+    height: 80,
+    width: 80,
+    borderRadius: 15,
+  },
+  bookMark: {
+    position: "absolute",
+    top: 0,
+    backgroundColor: colors.white,
+    padding: 3,
+    borderBottomRightRadius: 5,
+    borderTopLeftRadius: 5,
   },
   listContent: {
     flex: 1,
     justifyContent: "space-between",
-  },
-  listInfo: {
-    flex: 1,
-    position: "relative",
-    // flexDirection: "row",
-    // alignContent: "space-between",
-    paddingTop: 10,
-    paddingBottom: 3,
-  },
-  bookmark: {
-    position: "absolute",
-    right: 5,
-    top: 5,
-  },
-  cuisineList: {
+    alignItems: "center",
     flexDirection: "row",
-    marginRight: 5,
+    paddingHorizontal: 10,
   },
-  cusine: {
-    backgroundColor: colors.textLight,
-    paddingVertical: 3,
-    paddingHorizontal: 5,
-    marginRight: 5,
+  listItems: {
+    flexDirection: "row",
+    paddingTop: 3,
+  },
+  iconItem: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginRight: 7,
   },
 });

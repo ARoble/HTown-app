@@ -11,6 +11,7 @@ import List from "./components/List/List";
 import Detail from "./components/Details/index";
 import colors from "./assets/colors/colors";
 
+import Tabs from "./navigation/tabs";
 const Stack = createNativeStackNavigator();
 
 const MyTheme = {
@@ -35,35 +36,11 @@ function App() {
       />
     );
   }
+
   return (
     <SafeAreaView style={{ flex: 1, paddingTop: StatusBar.currentHeight }}>
       <NavigationContainer theme={MyTheme}>
-        <View style={styles.container}>
-          {/* <Header /> */}
-          <Stack.Navigator>
-            <Stack.Screen
-              name="Home"
-              component={Home}
-              options={{
-                headerShown: false,
-              }}
-            />
-            <Stack.Screen
-              name="List"
-              component={List}
-              options={{
-                headerShown: false,
-              }}
-            />
-            <Stack.Screen
-              name="Detail"
-              component={Detail}
-              options={{
-                headerShown: false,
-              }}
-            />
-          </Stack.Navigator>
-        </View>
+        <Tabs />
       </NavigationContainer>
     </SafeAreaView>
   );

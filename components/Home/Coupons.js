@@ -23,7 +23,7 @@ export default function Coupons() {
             text={"View More"}
             fontSize={12}
             font={"Montserrat_SemiBold"}
-            color={colors.primary}
+            color={colors.black}
           />
         </Pressable>
       </View>

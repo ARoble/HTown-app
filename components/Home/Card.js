@@ -61,15 +61,14 @@ export default function Card({ title, scroll }) {
   return (
     <View style={styles.cardContainer}>
       <View style={styles.header}>
-        <TextContent text={title} fontSize={23} font={"Montserrat_Bold"} />
+        <TextContent text={title} fontSize={18} font={"Montserrat_Bold"} />
         {scroll && (
           <Pressable onPress={() => navigation.navigate("List")}>
-            <TextContent
-              text={"View More"}
-              fontSize={12}
-              font={"Montserrat_SemiBold"}
-              color={colors.primary}
-            />
+            <Feather
+              name="arrow-right-circle"
+              size={25}
+              color={"black"}
+            ></Feather>
           </Pressable>
         )}
       </View>
@@ -107,8 +106,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     padding: 10,
     borderRadius: 100,
-    width: 115,
-    backgroundColor: colors.primary,
+    // width: 115,
+    backgroundColor: colors.black,
   },
   btnText: {
     color: colors.white,

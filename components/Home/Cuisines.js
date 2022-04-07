@@ -13,35 +13,40 @@ export default function Cuisines() {
             <TextContent
               text="Indian"
               fontSize={13}
-              font={"Montserrat_SemiBold"}
+              font={"Montserrat_Medium"}
+              color={colors.black}
             />
           </View>
           <View style={styles.cuisineItem}>
             <TextContent
               text="Arabian"
               fontSize={13}
-              font={"Montserrat_SemiBold"}
+              font={"Montserrat_Medium"}
+              color={colors.black}
             />
           </View>
           <View style={styles.cuisineItem}>
             <TextContent
               text="Italian"
               fontSize={13}
-              font={"Montserrat_SemiBold"}
+              font={"Montserrat_Medium"}
+              color={colors.black}
             />
           </View>
           <View style={styles.cuisineItem}>
             <TextContent
               text="Somali"
               fontSize={13}
-              font={"Montserrat_SemiBold"}
+              font={"Montserrat_Medium"}
+              color={colors.black}
             />
           </View>
           <View style={styles.cuisineItem}>
             <TextContent
               text="French"
               fontSize={13}
-              font={"Montserrat_SemiBold"}
+              font={"Montserrat_Medium"}
+              color={colors.black}
             />
           </View>
         </ScrollView>
@@ -63,7 +68,8 @@ const styles = StyleSheet.create({
   cuisineItem: {
     alignItems: "center",
     marginRight: 10,
-    backgroundColor: "white",
+    backgroundColor: colors.gray,
+
     borderRadius: 15,
     paddingHorizontal: 15,
     paddingVertical: 5,

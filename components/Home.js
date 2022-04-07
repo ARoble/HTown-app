@@ -13,9 +13,9 @@ export default function Home() {
   return (
     <ScrollView>
       <Header />
-      <Card title={"Places Near You 🍽"} scroll={true} />
+      <Card title={"Near You"} scroll={true} />
       <Cuisines />
-      <Card title={"Top Picks 🍽"} scroll={false} />
+      <Card title={"Top Picks"} scroll={false} />
       <Coupons />
     </ScrollView>
   );

@@ -48,6 +48,8 @@ const styles = StyleSheet.create({
     borderRadius: 7,
     marginVertical: 5,
     marginRight: 10,
+    borderWidth: 0.2,
+    borderColor: "gray",
   },
   noScrollCard: {
     backgroundColor: colors.white,
@@ -55,6 +57,8 @@ const styles = StyleSheet.create({
     borderRadius: 7,
     marginVertical: 5,
     marginRight: 10,
+    borderWidth: 0.2,
+    borderColor: "gray",
   },
   cardHeading: {
     fontSize: 15,
@@ -72,5 +76,6 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     aspectRatio: 1.2,
+    marginTop: 2,
   },
 });
